@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/", label: "Feed" },
@@ -7,6 +10,8 @@ const links = [
 ];
 
 export function TopNav() {
+  const pathname = usePathname();
+
   return (
     <header className="border-b border-slate-800 bg-slate-950/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -19,7 +24,11 @@ export function TopNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-2 py-1 transition hover:bg-slate-800 hover:text-white"
+              className={`rounded-md px-2 py-1 transition hover:bg-slate-800 hover:text-white ${
+                pathname === link.href
+                  ? "text-teal-300 bg-slate-800"
+                  : ""
+              }`}
             >
               {link.label}
             </Link>
