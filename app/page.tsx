@@ -123,9 +123,15 @@ export default function GovernancePortal() {
       <div className="border-b border-gray-800 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-white tracking-tight">AAAGTMP</h1>
-          <p className="text-xs text-gray-500 mt-0.5">Aurion AI Agent GTM Platform · Governance Portal</p>
+          <p className="text-xs text-gray-500 mt-0.5">Aurion AI GTM Platform · Governance Portal</p>
         </div>
         <div className="flex items-center gap-4 text-xs">
+          <a
+            href="/howitworks"
+            className="text-gray-500 hover:text-gray-300 transition-colors tracking-wide"
+          >
+            How It Works →
+          </a>
           <span className={`flex items-center gap-1.5 ${connected ? 'text-green-400' : 'text-red-400'}`}>
             <span className={`w-2 h-2 rounded-full ${connected ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
             {connected ? 'LIVE' : 'CONNECTING...'}

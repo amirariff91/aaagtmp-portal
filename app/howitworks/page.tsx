@@ -103,8 +103,8 @@ const opcos = [
     audience: "Sovereign funds, regulators, institutional investors.",
   },
   {
-    name: "Digital Aurion (SentienFi)",
-    desc: "Consumer financial education.",
+    name: "Digital Aurion / SentienFi",
+    desc: "Consumer financial education and financial trust.",
     audience: "Mass market across Southeast Asia.",
   },
   {
@@ -113,14 +113,14 @@ const opcos = [
     audience: "Family offices and private wealth.",
   },
   {
-    name: "AurionID",
-    desc: "Digital identity and compliance infrastructure.",
-    audience: "Regulators, enterprises, and government bodies.",
+    name: "Landmark",
+    desc: "Property intelligence and lead generation.",
+    audience: "Property investors, agents, and developers.",
   },
   {
-    name: "Aurion Mirai",
+    name: "Mirai (Soul Cities)",
     desc: "Smart cities and government infrastructure.",
-    audience: "Government agencies and municipal authorities.",
+    audience: "Government agencies, city planners, and municipal authorities.",
   },
 ];
 
@@ -171,6 +171,30 @@ export default function HowItWorksPage() {
       style={{ backgroundColor: "#0A0A0F", color: "#F1F5F9" }}
       className="min-h-screen"
     >
+      {/* ─── NAV ─── */}
+      <nav
+        className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 border-b"
+        style={{
+          borderColor: "rgba(255,255,255,0.07)",
+          backgroundColor: "rgba(10,10,15,0.85)",
+          backdropFilter: "blur(12px)",
+        }}
+      >
+        <a
+          href="/"
+          className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2"
+        >
+          <span>←</span>
+          <span>Live Dashboard</span>
+        </a>
+        <span
+          className="text-xs font-semibold tracking-[0.3em] uppercase"
+          style={{ color: "#0F766E" }}
+        >
+          AAAGTMP
+        </span>
+      </nav>
+
       {/* ─── HERO ─── */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center">
         {/* Subtle radial glow */}
