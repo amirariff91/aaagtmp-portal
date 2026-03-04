@@ -62,6 +62,39 @@ const ORIGIN_BADGE: Record<string, string> = {
   system: 'bg-gray-700 text-gray-300',
 };
 
+const HOW_IT_WORKS_STEPS = [
+  {
+    icon: '💬',
+    label: 'You send a task',
+    sub: 'Via WhatsApp or chat',
+    border: 'border-gray-800',
+  },
+  {
+    icon: '🧠',
+    label: 'Command Centre receives it',
+    sub: 'Loads business memory, rules & past context',
+    border: 'border-gray-800',
+  },
+  {
+    icon: '⚡',
+    label: 'Agent gets to work',
+    sub: 'Content, research, analysis — the right agent for the job',
+    border: 'border-gray-800',
+  },
+  {
+    icon: '✅',
+    label: 'You approve before anything goes out',
+    sub: 'Nothing publishes without a human sign-off',
+    border: 'border-yellow-900/60',
+  },
+  {
+    icon: '📋',
+    label: 'Action taken, everything recorded',
+    sub: 'Full audit trail, governance-grade evidence',
+    border: 'border-green-900/60',
+  },
+];
+
 export default function GovernancePortal() {
   const [auditLog, setAuditLog] = useState<AuditEntry[]>([]);
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -149,7 +182,45 @@ export default function GovernancePortal() {
         <div><span className="text-gray-500">Unauthorized sends</span> <span className="text-green-400 ml-2 font-bold">0</span></div>
       </div>
 
-      <div className="flex h-[calc(100vh-120px)]">
+      {/* ─── How It Works ─── */}
+      <div className="border-b border-gray-800 px-6 py-6 bg-gray-950">
+        <div className="max-w-5xl mx-auto">
+          {/* Section header */}
+          <div className="text-center mb-5">
+            <p className="text-xs tracking-[0.3em] uppercase text-gray-600 mb-1">Platform Overview</p>
+            <h2 className="text-sm font-bold text-white tracking-wide">How It Works</h2>
+            <p className="text-xs text-gray-500 mt-1.5">
+              From task to execution — with a human in the loop at every step that matters.
+            </p>
+          </div>
+
+          {/* Flow diagram */}
+          <div className="flex flex-col md:flex-row items-center justify-center">
+            {HOW_IT_WORKS_STEPS.map((step, i) => (
+              <div key={i} className="flex flex-col md:flex-row items-center">
+                {/* Node card */}
+                <div
+                  className={`flex flex-col items-center text-center rounded-lg bg-gray-900 border ${step.border} px-3 py-3 w-36 shrink-0 transition-colors hover:bg-gray-800`}
+                >
+                  <span className="text-xl mb-1.5">{step.icon}</span>
+                  <p className="text-xs font-semibold text-white leading-snug">{step.label}</p>
+                  <p className="text-xs text-gray-600 mt-1 leading-snug">{step.sub}</p>
+                </div>
+
+                {/* Arrow (only between nodes, not after last) */}
+                {i < HOW_IT_WORKS_STEPS.length - 1 && (
+                  <span className="text-gray-700 text-lg mx-1 my-1 md:my-0 rotate-90 md:rotate-0 select-none">
+                    ›
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main panels */}
+      <div className="flex h-[calc(100vh-350px)] min-h-[380px]">
         {/* Left: Active tasks */}
         <div className="w-80 border-r border-gray-800 flex flex-col">
           <div className="px-4 py-3 border-b border-gray-800 text-xs text-gray-500 uppercase tracking-wider">Active Tasks</div>
